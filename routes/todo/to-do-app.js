@@ -35,7 +35,17 @@ module.exports = app => {
     }
   });
 
-  app.delete('/to-do/delete/:id', (req, res) => {
+  app.post('/to-do/delete/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+      const del = await ToDo.updateOne(
+        { _id: id },
+        { $set: { deleted: true } }
+      );
+      res.status(200).send('deleted todo');
+    } catch (err) {
+      console.log(err);
+    }
     res.send('delete');
   });
 };

@@ -8,6 +8,7 @@ const todoSchema = new Schema(
     task: String,
     assignedTo: String,
     deadline: Date,
+    deleted: {type: Boolean, default: false},
     dateCreated: { type: Date, default: Date.now },
   },
   options
