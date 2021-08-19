@@ -6,6 +6,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 require('./routes/todo/to-do-app')(app);
+require('./routes/fizzbuzz/fizzbuzz')(app);
 require('./config/mongodb');
 
 app.listen(PORT, () => console.log('Server is listening on port 5000'));
